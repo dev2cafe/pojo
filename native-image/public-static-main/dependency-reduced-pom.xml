@@ -42,7 +42,6 @@
     </plugins>
   </build>
   <properties>
-    <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <java.version>11</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
