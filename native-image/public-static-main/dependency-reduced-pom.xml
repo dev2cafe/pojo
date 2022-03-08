@@ -27,6 +27,17 @@
             <goals>
               <goal>shade</goal>
             </goals>
+            <configuration>
+              <finalName>${project.name}-${project.version}</finalName>
+              <transformers>
+                <transformer>
+                  <manifestEntries>
+                    <Main-Class>io.paketo.App</Main-Class>
+                    <Build-Number>123</Build-Number>
+                  </manifestEntries>
+                </transformer>
+              </transformers>
+            </configuration>
           </execution>
         </executions>
       </plugin>
