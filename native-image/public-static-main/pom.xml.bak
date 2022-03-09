@@ -31,26 +31,25 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.6</version>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.4.3</version>
         <executions>
           <execution>
             <phase>package</phase>
             <goals>
-              <goal>single</goal>
+              <goal>shade</goal>
             </goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+		  <manifestEntries>
+                  <Main-Class>io.paketo.App</Main-Class>
+		  </manifestEntries>
+                </transformer>
+              </transformers>
+            </configuration>
           </execution>
         </executions>
-            <configuration>
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-                <archive>
-                    <manifest>
-                        <mainClass>io.paketo.App</mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
       </plugin>
     </plugins>
   </build>
