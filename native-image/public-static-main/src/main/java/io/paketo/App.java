@@ -1,6 +1,7 @@
 package io.paketo;
 
 import io.paketo.CosExample;
+import java.io.*;
 
 public class App 
 {
@@ -9,5 +10,24 @@ public class App
 	CosExample cos = new CosExample();
         System.out.println(System.getenv("STR_KEY") +  "Hello!" );
 	System.out.println(cos.test());
+
+
+	String s = null;
+
+        try {
+		Process p = Runtime.getRuntime().exec("ping -c 4 8.8.8.8");
+		BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		while((s=stdInput.readLine()) != null) {
+			System.out.println(s);
+		}
+		System.exit(0);
+	}catch(IOException e){
+		e.printStackTrace();
+		System.exit(-1);
+	}
+
+
+
+
     }
 }
