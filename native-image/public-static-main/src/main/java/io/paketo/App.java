@@ -11,6 +11,15 @@ public class App
         System.out.println(System.getenv("STR_KEY") +  "Hello!" );
 	System.out.println(cos.test());
 
+	System.out.println("Enter into Sleep");
+ 
+        try {
+            Thread.sleep(10 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+ 
+        System.out.println("Exit from Sleep");
 
 	String s = null;
 
